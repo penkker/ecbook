@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>易诚书苑</title>
+    <!-- 引入轮播图样式表 -->
+    <link rel="stylesheet" th:href="@{/static/css/actionlmg.css}">
+    <!-- 引入重置样式表 -->
+    <link rel="stylesheet" th:href="@{/static/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/static/css/index_dh.css}">
+    <link rel="stylesheet" th:href="@{/static/css/index_style.css}">
+    <link rel="stylesheet" th:href="@{/static/css/normalize.css}">
+    <!-- 引入主页面样式 -->
+    <link rel="stylesheet" th:href="@{/static/css/index.css}">
+    <link rel="stylesheet" th:href="@{/static/css/style.css}">
+    <!-- 引入网页标题图标 -->
+    <link rel="icon" th:href="@{/static/imgs/shu_logo.ico}" type="image/x-icon">
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/font-awesome.4.7.0.css">
+    <link rel="stylesheet" th:href="@{/static/plugins/indext-icons/style.css}">
+    <!-- 轮播图Javascript -->
+    <script th:src="@{/static/js/index_main.js}"></script>
+    <script th:src="@{/static/js/jquery-3.3.1.js}"></script>
+    <script th:src="@{/static/js/index_lunbo.js}"></script>
+    <!-- 
+        重置样式表：专门用来对浏览器的样式进行重置的
+            reset.css 直接去除了浏览器的默认样式
+            normalize.css 对默认样式进行了统一
+     -->
+    <script th:src="@{/static/js/index_jqury (1).js}"></script>
+    <script th:src="@{/static/js/index_jqury (2).js}"></script>
+</head>
+<body>
+    <div class="beijing">
+        <img th:src="@{/static/imgs/index_beijng.png}" alt="背景图片">
+    </div>
+    <div class="topbar-one">
+        <div class="container">
+            <div class="topbar-one__left">
+                <div class="topbar-one__social">
+                    <a href="https://www.qq.com/"><i class="fa fa-qq"></i></a>
+                    <a href="https://weixin.qq.com/"><i class="fa fa-weixin"></i></a>
+                    <a href="https://weibo.com"><i class="fa fa-weibo"></i></a>
+                    <a href="https://www.baidu.com/"><i class="fa fa-rss"></i></a>
+                </div>
+            </div>
+            <div class="topbar-one__right">
+                <div class="topbar-one__links">
+                    <a th:href="@{/love.do(operate='getLoveList')}" class="topbar-one__cart">
+                        <i class="indext-icon-Bag"></i>
+                    </a>
+                    <a th:href="@{/page.do(operate='page',page='contact/contact')}" class="topbar-one__link">
+                        <i class="indext-icon-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="max_box">
+        <!-- logo -->
+        <div class="logo_box">
+            <div class="logo">
+                <img th:src="@{/static/imgs/logo.png}" alt="logo">
+            </div>
+        </div>
+        <!-- 导航条 -->
+        <div class="nav_box">
+            <div class="nav_box_lf">
+                <a th:href="@{/page.do(operate='page',page='index')}">
+                    <img th:src="@{/static/imgs/shu_logo.png}" alt="">
+                </a>
+            </div>
+            <ul class="nav">
+                <li>
+                    <a th:href="@{/page.do(operate='page',page='tea/come_tea')}">易诚茶坊</a>
+                </li>
+                <li>
+                    <a th:href="@{/book.do(operate='hotBook')}">热门书籍</a>
+                </li>
+                <li >
+                    <a href="#diertian">推荐书籍</a>
+                </li>
+                <li id="good_boxss">
+                    <a th:href="@{/book.do(operate='getBookList')}">易诚书库</a>
+                </li>
+                <li>
+                    <a th:href="@{/user.do(operate='getTime')}">书友论坛</a>
+                </li>
+                <li>
+                    <a th:href="@{/love.do(operate='getLoveList')}">收藏中心</a>
+                </li>
+                <li>
+                    <a th:href="@{/page.do(operate='page',page='admin/login_admin')}">管理中心</a>
+                </li>
+                <li>
+                    <a th:href="@{/user.do(operate='personStore')}">个人中心</a>
+                </li>
+                <!-- 创建一个弹出层 -->
+                <div class="goods-info">
+                    <div class="nav_min_max">
+                        <ui class="nav_min">
+                            <li>
+                                <a th:href="@{/book.do(operate='getThBook',bookType='文学')}">文学</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/book.do(operate='getThBook',bookType='科技')}">科技</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/book.do(operate='getThBook',bookType='生活')}">生活</a>
+                            </li>
+                            <li>
+                                <a th:href="@{/book.do(operate='getThBook',bookType='小说')}">小说</a>
+                            </li>
+                        </ui>
+                    </div>
+                </div>  
+            </ul>
+            <div class="search-wrapper">
+                <form class="search" th:action="@{/book.do}" method="post">   
+                    <input type="hidden" name="operate" value="getBookList">
+                    <input class="search-inp" name="bookName" type="text">
+                    <input type="image" class="search-btn" th:src="@{/static/temp_imgs/sousuo_btn.png}">
+                </form>
+            </div>
+        </div>
+        <div class="matter_box">
+            <div class="matter_lf_box">
+				<ul class="category_list">
+                    <li class="category_item">
+                        <a th:href="@{/book.do(operate='hotBook')}" class="category_item_icon">热门图书 最新上架</a>
+                        <div class="category_item_box">
+                            <ul class="category_item_list fl">
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getGoodsInfo',id=29)}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">古法今观梓人遗制</span>
+                                    </a>
+                                </li>
+                                <div class="clearfix"></div>
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getGoodsInfo',id=42)}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">你当像鸟飞往你的山</span>
+                                    </a>
+                                </li>
+                                <div class="clearfix"></div>
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getGoodsInfo',id=43)}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">心安即是归处</span>
+                                    </a>
+                                </li>
+                                <div class="clearfix"></div>
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getGoodsInfo',id=50)}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">月光落在左手上</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+					<li class="category_item">
+						<a th:href="@{/book.do(operate='getThBook',bookType='文学')}" class="category_item_icon">纪实文学 民间文学</a>
+						<div class="category_item_box">
+							<ul class="category_item_list fl">
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getThBook',bookType='文学')}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">文学评论与赏析</span>
+                                    </a>
+                                </li>
+                                <div class="clearfix"></div>
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getThBook',bookType='文学')}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">诗歌词曲/戏剧文学</span>
+                                    </a>
+                                </li>
+                                <div class="clearfix"></div>
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getThBook',bookType='文学')}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">中国古代随笔</span>
+                                    </a>
+                                </li>
+                                <div class="clearfix"></div>
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getThBook',bookType='文学')}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">人物传记/哲学家</span>
+                                    </a>
+                                </li>
+                            </ul>
+						</div>
+					</li>
+					<li class="category_item">
+						<a th:href="@{/book.do(operate='getThBook',bookType='科技')}" class="category_item_icon">科技 自然科学 计算机</a>
+						<div class="category_item_box">
+							<ul class="category_item_list fl">
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getThBook',bookType='科技')}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">科普读物/百科知识</span>
+                                    </a>
+                                </li>
+                                <div class="clearfix"></div>
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getThBook',bookType='科技')}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">建筑科学/设计/医学</span>
+                                    </a>
+                                </li>
+                                <div class="clearfix"></div>
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getThBook',bookType='科技')}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">程序/操作系统/人工智能</span>
+                                    </a>
+                                </li>
+                                <div class="clearfix"></div>
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getThBook',bookType='科技')}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">物理学/化学/天文学</span>
+                                    </a>
+                                </li>
+                            </ul>
+						</div>
+					</li>
+					<li class="category_item">
+						<a th:href="@{/book.do(operate='getThBook',bookType='生活')}" class="category_item_icon">旅游 家教 保健 美食</a>
+						<div class="category_item_box">
+							<ul class="category_item_list fl">
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getThBook',bookType='生活')}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">自驾游/旅游攻略/地图</span>
+                                    </a>
+                                </li>
+                                <div class="clearfix"></div>
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getThBook',bookType='生活')}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">美食/烹饪/菜谱</span>
+                                    </a>
+                                </li>
+                                <div class="clearfix"></div>
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getThBook',bookType='生活')}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">保健/运动/美妆</span>
+                                    </a>
+                                </li>
+                                <div class="clearfix"></div>
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getThBook',bookType='生活')}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">两性/孕期/育儿</span>
+                                    </a>
+                                </li>
+                            </ul>
+						</div>
+					</li>
+					<li class="category_item">
+						<a th:href="@{/book.do(operate='getThBook',bookType='小说')}" class="category_item_icon">各类小说 名著</a>
+						<div class="category_item_box">
+							<ul class="category_item_list fl">
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getThBook',bookType='小说')}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">中国近现代小说</span>
+                                    </a>
+                                </li>
+                                <div class="clearfix"></div>
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getThBook',bookType='小说')}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">世界名著/四大名著</span>
+                                    </a>
+                                </li>
+                                <div class="clearfix"></div>
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getThBook',bookType='小说')}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">侦探/悬疑/推理</span>
+                                    </a>
+                                </li>
+                                <div class="clearfix"></div>
+                                <li class="category_item_spec">
+                                    <a th:href="@{/book.do(operate='getThBook',bookType='小说')}" class="category_item_spec_detail fl">
+                                        <span class="category_item_title">武侠/情感/影视</span>
+                                    </a>
+                                </li>
+                            </ul>
+						</div>
+					</li>		
+				</ul>
+            </div>
+            <!-- 轮播图 -->
+            <div class="lbt_box">
+                <div class="app">
+                    <div class="scroll">
+                        <!-- 图片展示 -->
+                        <img th:src="@{/static/imgs/lunbo_one.png}" alt="scrollImage" class="img current">
+                        <img th:src="@{/static/imgs/lunbo_two.png}" alt="scrollImage" class="img">
+                        <img th:src="@{/static/imgs/lunbo_three.png}" alt="scrollImage" class="img">
+                        <img th:src="@{/static/imgs/lunbo_four.png}" alt="scrollImage" class="img">
+                        <img th:src="@{/static/imgs/lunbo_five.png}" alt="scrollImage" class="img">
+                    
+                        <!-- 左右箭头的展示 -->
+                        <div class="lf"><</div>
+                        <div class="lr">></div>
+
+                        <!-- 小圆点展示 -->
+                        <div class="dots">
+                            <span class="square"></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="matter_lr_box">
+                <div class="BodyC-FirstScreen-R_a">
+                    <ul>
+                        <li><a th:href="@{/book.do(operate='getGoodsInfo',id=9)}">
+                            <img th:src="@{/static/bestsell/clzs.png}" alt="">
+                            <p>沧浪之水</p>
+                        </a></li>
+                        <li><a th:href="@{/book.do(operate='getGoodsInfo',id=5)}">
+                            <img th:src="@{static/bestsell/sspl.png}" alt="">
+                            <p>生死疲劳</p>
+                        </a></li>
+                        <li><a th:href="@{/book.do(operate='getGoodsInfo',id=28)}">
+                            <img th:src="@{/static/bestsell/sjjs.png}" alt="">
+                            <p>时间简史</p>
+                        </a></li>
+                        <li><a th:href="@{/book.do(operate='getGoodsInfo',id=6)}">
+                            <img th:src="@{/static/bestsell/rshh.png}" alt="">
+                            <p>人生海海</p>
+                        </a></li>
+                        <li><a th:href="@{/book.do(operate='getGoodsInfo',id=44)}">
+                            <img th:src="@{/static/bestsell/sjby.png}" alt="">
+                            <p>时间从来不语</p>
+                        </a></li>
+                        <li><a th:href="@{/book.do(operate='getGoodsInfo',id=8)}">
+                            <img th:src="@{/static/bestsell/hz.png}" alt="">
+                            <p>活着</p>
+                        </a></li>
+                        <li><a th:href="@{/book.do(operate='getGoodsInfo',id=25)}">
+                            <img th:src="@{/static/bestsell/ylgc.png}" alt="">
+                            <p>医林改错</p>
+                        </a></li>
+                        <li><a th:href="@{/book.do(operate='getGoodsInfo',id=10)}">
+                            <img th:src="@{/static/bestsell/xsd.png}" alt="">
+                            <p>消失的13级台阶</p>
+                        </a></li>
+                        <li><a th:href="@{/book.do(operate='getGoodsInfo',id=48)}">
+                            <img th:src="@{/static/bestsell/shl.png}" alt="">
+                            <p>撒哈拉的故事</p>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="matter_bottom">
+                <div class="BodyC-huadong-box">
+                    <div class="huadong-back"><</div>
+                    <div class="huadong-next">></div>
+                    <div class="BodyC-huadong">
+                        <ul>
+                            <li>
+                                <a th:href="@{/book.do(operate='getGoodsInfo',id=47)}">
+                                    <img th:src="@{/static/bestsell/lkyq.png}" alt=""/>
+                                    <p>在你们离开之前</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/book.do(operate='getGoodsInfo',id=12)}">
+                                    <img th:src="@{/static/bestsell/bngd.png}" alt=""/>
+                                    <p>百年孤独</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/book.do(operate='getGoodsInfo',id=46)}">
+                                    <img th:src="@{/static/bestsell/chj.png}" alt=""/>
+                                    <p>人生笔记</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/book.do(operate='getGoodsInfo',id=31)}">
+                                    <img th:src="@{/static/bestsell/yzbl.png}" alt=""/>
+                                    <p>宇宙波澜</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a th:href="@{/book.do(operate='getGoodsInfo',id=19)}">
+                                    <img th:src="@{/static/bestsell/yyzh.png}" alt=""/>
+                                    <p>园艺智慧</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/tea.do(operate='getGoodsInfo',id=853034)}">
+                                    <img th:src="@{/static/img_tea/sqmj.png}" alt=""/>
+                                    <p>双桥毛尖</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/tea.do(operate='getGoodsInfo',id=853027)}">
+                                    <img th:src="@{/static/img_tea/jslmd.png}" alt=""/>
+                                    <p>江山绿牡丹</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/tea.do(operate='getGoodsInfo',id=853039)}">
+                                    <img th:src="@{/static/img_tea/ycxy.png}" alt=""/>
+                                    <p>永川秀芽</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a th:href="@{/tea.do(operate='getGoodsInfo',id=853031)}">
+                                    <img th:src="@{/static/img_tea/mgc.png}" alt=""/>
+                                    <p>麻姑茶</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/tea.do(operate='getGoodsInfo',id=853024)}">
+                                    <img th:src="@{/static/img_tea/jdbc.png}" alt=""/>
+                                    <p>建德苞茶</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 文学类 -->
+        <div class="wenx">
+            <div class="lf_box1">
+                <div class="wenx_list">
+                    <!-- 创建一个图片容器 -->
+                    <div class="wenx_img">
+                        <a th:href="@{/book.do(operate='getThBook',bookType='文学')}">
+                            <img th:src="@{/static/imgs/wenxue_all.png}" alt="文学">
+                            <h3 class="img_title">
+                                我们必须继承一切优秀的文学艺术遗产。——毛泽东
+                            </h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="ll_box1"></div>
+            <div class="lr_box1">
+                <div class="keji_list_cube">
+                    <!-- 创建一个外部的容器 -->
+                    <div class="cube_one">
+                        <!-- 引入图片 -->
+                        <div class="cube_box1">
+                            <img th:src="@{/static/imgs/wenxue_one.jpg}">
+                        </div>
+
+                        <div class="cube_box2">
+                            <img th:src="@{/static/imgs/wenxue_two.jpg}">
+                        </div>
+
+                        <div class="cube_box3">
+                            <img th:src="@{/static/imgs/wenxue_three.jpg}">
+                        </div>
+
+                        <div class="cube_box4">
+                            <img th:src="@{/static/imgs/wenxue_four.jpg}">
+                        </div>
+
+                        <div class="cube_box5">
+                            <img th:src="@{/static/imgs/wenxue_five.jpg}">
+                        </div>
+
+                        <div class="cube_box6">
+                            <img th:src="@{/static/imgs/wenxue_six.jpg}">
+                        </div>
+                    </div>        
+                </div>
+            </div>
+        </div>
+        <!-- 科技类 -->
+        <div class="keji">
+            <div class="lf_box2">
+                <div class="wenx_list_cube">
+                    <!-- 创建一个外部的容器 -->
+                    <div class="cube_two">
+                        <!-- 引入图片 -->
+                        <div class="cube_box1">
+                            <img th:src="@{/static/imgs/keji_one.png}">
+                        </div>
+
+                        <div class="cube_box2">
+                            <img th:src="@{/static/imgs/keji_two.png}">
+                        </div>
+
+                        <div class="cube_box3">
+                            <img th:src="@{/static/imgs/keji_three.png}">
+                        </div>
+
+                        <div class="cube_box4">
+                            <img th:src="@{/static/imgs/keji_four.png}">
+                        </div>
+
+                        <div class="cube_box5">
+                            <img th:src="@{/static/imgs/keji_five.png}">
+                        </div>
+
+                        <div class="cube_box6">
+                            <img th:src="@{/static/imgs/keji_six.png}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ll_box2"></div>
+            <div class="lr_box2">
+                <div class="keji_list">
+                    <!-- 创建一个图片容器 -->
+                    <div class="keji_img">
+                        <a th:href="@{/book.do(operate='getThBook',bookType='科技')}">
+                            <img th:src="@{/static/imgs/keji_all.png}" alt="科技">
+                            <h3 class="img_title2">
+                                科学的每一项巨大成就，都是以大胆的幻想为出发点的。
+                            </h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 生活类 -->
+        <div class="life">
+            <div class="lf_box3">
+                <div class="life_list">
+                    <!-- 创建一个图片容器 -->
+                    <div class="life_img">
+                        <a th:href="@{/book.do(operate='getThBook',bookType='生活')}">
+                            <img th:src="@{/static/imgs/life_all.png}" alt="生活">
+                            <h3 class="img_title3">
+                                生活中没有理想的人，是可怜的人。——屠格涅夫
+                            </h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="ll_box3"></div>
+            <div class="lr_box3">
+                <div class="keji_list_cube">
+                    <!-- 创建一个外部的容器 -->
+                    <div class="cube_three">
+                        <!-- 引入图片 -->
+                        <div class="cube_box1">
+                            <img th:src="@{/static/imgs/life_one.jpg}">
+                        </div>
+
+                        <div class="cube_box2">
+                            <img th:src="@{/static/imgs/life_two.png}">
+                        </div>
+
+                        <div class="cube_box3">
+                            <img th:src="@{/static/imgs/life_three.jpg}">
+                        </div>
+
+                        <div class="cube_box4">
+                            <img th:src="@{/static/imgs/life_four.png}">
+                        </div>
+
+                        <div class="cube_box5">
+                            <img th:src="@{/static/imgs/life_five.png}">
+                        </div>
+
+                        <div class="cube_box6">
+                            <img th:src="@{/static/imgs/life_six.png}">
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </div>
+        <!-- 小说类 -->
+        <div class="novel">
+            <div class="lf_box4">
+                <div class="wenx_list_cube">
+                    <!-- 创建一个外部的容器 -->
+                    <div class="cube_four">
+                        <!-- 引入图片 -->
+                        <div class="cube_box1">
+                            <img th:src="@{/static/imgs/novel_one.png}">
+                        </div>
+
+                        <div class="cube_box2">
+                            <img th:src="@{/static/imgs/novel_two.png}">
+                        </div>
+
+                        <div class="cube_box3">
+                            <img th:src="@{/static/imgs/novel_three.png}">
+                        </div>
+
+                        <div class="cube_box4">
+                            <img th:src="@{/static/imgs/novel_four.png}">
+                        </div>
+
+                        <div class="cube_box5">
+                            <img th:src="@{/static/imgs/novel_five.png}">
+                        </div>
+
+                        <div class="cube_box6">
+                            <img th:src="@{/static/imgs/novel_six.png}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ll_box4"></div>
+            <div class="lr_box4">
+                <div class="novel_list">
+                    <!-- 创建一个图片容器 -->
+                    <div class="novel_img">
+                        <a th:href="@{/book.do(operate='getThBook',bookType='小说')}">
+                            <img th:src="@{/static/imgs/novel_all.png}" alt="小说">
+                            <h3 class="img_title4">
+                                小说艺术的精髓就是创造人物的艺术。
+                            </h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 推荐信息 -->
+        <div class="recomend_maxbox">
+            <div class="recomend_title">
+                <div class="xian"></div>
+                <h2 class="recomend_h" id="diertian">
+                    推荐书籍
+                </h2>
+            </div>
+            <div class="recomend_onebox">
+                <div class="onebox_lf">
+                    <div class="onerlf_list">
+                        <!-- 创建一个图片容器 -->
+                        <div class="onelf_img">
+                            <a th:href="@{/book.do(operate='getGoodsInfo',id=2)}">
+                                <img th:src="@{/static/imgs/renmen_xiyouji.png}" alt="西游记">
+                            </a>
+                        <!-- 创建标题标签 -->
+                        <h2 class="recomend_text">
+                            <a th:href="@{/book.do(operate='getGoodsInfo',id=2)}">
+                                西游记
+                            </a>
+                        </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="onebox_lr">
+                    <div class="onerlr_list">
+                        <!-- 创建一个图片容器 -->
+                        <div class="onelr_img">
+                            <a th:href="@{/book.do(operate='getGoodsInfo',id=3)}">
+                                <img th:src="@{/static/bestsell/hlm.png}" alt="红楼梦">
+                            </a>
+                        <!-- 创建标题标签 -->
+                        <h2 class="recomend_text">
+                            <a th:href="@{/book.do(operate='getGoodsInfo',id=3)}">
+                                红楼梦
+                            </a>
+                        </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="recomend_twobox">
+                <div class="twobox_lf">
+                    <div class="tworlf_list">
+                        <!-- 创建一个图片容器 -->
+                        <div class="twolf_img">
+                            <a th:href="@{/book.do(operate='getGoodsInfo',id=4)}">
+                                <img th:src="@{/static/bestsell/shz.png}" alt="水浒传">
+                            </a>
+                        <!-- 创建标题标签 -->
+                        <h2 class="recomend_text">
+                            <a th:href="@{/book.do(operate='getGoodsInfo',id=4)}">
+                                水浒传
+                            </a>
+                        </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="twobox_lr">
+                    <div class="tworlr_list">
+                        <!-- 创建一个图片容器 -->
+                        <div class="twolr_img">
+                            <a th:href="@{/book.do(operate='getGoodsInfo',id=1)}">
+                                <img th:src="@{/static/imgs/renmen_sanguoyanyi.png}" alt="三国演义">
+                            </a>
+                        <!-- 创建标题标签 -->
+                        <h2 class="recomend_text">
+                            <a th:href="@{/book.do(operate='getGoodsInfo',id=1)}">
+                                三国演义
+                            </a>
+                        </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="recomend_threebox">
+                <div class="threebox_lf">
+                    <div class="threelf_list">
+                        <!-- 创建一个图片容器 -->
+                        <div class="threelf_img">
+                            <a th:href="@{/book.do(operate='getGoodsInfo',id=27)}">
+                                <img th:src="@{/static/bestsell/wl.png}" alt="AI未来">
+                            </a>
+                        <!-- 创建标题标签 -->
+                        <h2 class="recomend_text">
+                            <a th:href="@{/book.do(operate='getGoodsInfo',id=27)}">
+                                AI未来
+                            </a>
+                        </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="threebox_ll">
+                    <div class="threerll_list">
+                        <!-- 创建一个图片容器 -->
+                        <div class="threell_img">
+                            <a th:href="@{/book.do(operate='getGoodsInfo',id=17)}">
+                                <img th:src="@{/static/bestsell/xsyh.png}" alt="新手四季养花">
+                            </a>
+                        <!-- 创建标题标签 -->
+                        <h2 class="recomend_text">
+                            <a th:href="@{/book.do(operate='getGoodsInfo',id=17)}">
+                                新手四季养花
+                            </a>
+                        </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="lll">
+
+                </div>
+                <div class="threebox_lr">
+                    <div class="threerlr_list">
+                        <!-- 创建一个图片容器 -->
+                        <div class="threelr_img">
+                            <a th:href="@{/book.do(operate='getGoodsInfo',id=14)}">
+                                <img th:src="@{/static/bestsell/byx.png}" alt="白夜行">
+                            </a>
+                        <!-- 创建标题标签 -->
+                        <h2 class="recomend_text">
+                            <a th:href="@{/book.do(operate='getGoodsInfo',id=14)}">
+                                白夜行
+                            </a>
+                        </h2>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+        </div>
+        <div class="miny_box">
+            <div class="miny_box_title">
+                <h2 class="miny_h2">
+                    发奋识遍天下字，立志读尽人间书。——苏轼
+                </h2>
+            </div>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <div class="site-footer__upper">
+            <div class="container_one">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-5">
+                        <div class="footer-widget footer-widget__about-widget">
+                            <a th:href="@{/page.do(operate='page',page='index')}">
+                                <img th:src="@{/static/imgs/logo_product.png}" width="271" class="footer-widget__logo" alt="">
+                            </a>
+                            <p class="footer-widget__text">
+                                随着信息时代的日新月异，仅仅可触及的纸质实体难以满足当代人们对于自我精神的满足，他们越来越追求便捷式的阅读方式——电子阅读。通过此发展趋势，我们利用数字化的技术设计网上阅览平台。
+                                将网络和现实互相结合,进而实现休闲,交流,在平台找到共同好友,说出自己的心声，因此为大家搭建了这样一个平台。
+                            </p>
+                            <div class="footer-widget__social">
+                                <a href="https://im.qq.com/index" class="fa fa-qq"></a>
+                                <a href="https://weixin.qq.com" class="fa fa-weixin"></a>
+                                <a href="https://weibo.com/login.php/" class="fa fa-weibo"></a>
+                                <a href="https://www.baidu.com/" class="fa fa-rss"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3">
+                        <div class="footer-widget footer-widget__links-widget">
+                            <h2 class="footer-widget__title">快速链接</h2>
+                            <ul class="footer-widget__links list-unstyled">
+                                <li><a th:href="@{/page.do(operate='page',page='index')}"> 进入首页</a></li>
+                                <li><a th:href="@{/page.do(operate='page',page='personcenter/user')}"> 个人中心</a></li>
+                                <li><a th:href="@{/page.do(operate='page',page='search/bookclass')}"> 易诚书库</a></li>
+                                <li><a th:href="@{/page.do(operate='page',page='tea/come_tea')}"> 易诚茶坊</a></li>
+                                <li><a th:href="@{/page.do(operate='page',page='admin/login_admin')}"> 管理中心</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4">
+                        <div class="footer-widget footer-widget__contact-widget">
+                            <h2 class="footer-widget__title">联系信息</h2>
+                            <p class="footer-widget__text">**省**市**区<br> *****街道 ****号
+                            </p>
+                            <p class="footer-widget__text">传真：0***-8******</p>
+                            <p class="footer-widget__text">客服热线：0***-*****</p>
+                            <p class="footer-widget__text">邮箱：***********@163.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="site-footer__bottom">
+            <div class="container_two">
+                <div class="site-footer__copy"><a href="#">Copyright </a> <i class="fa fa-copyright"></i> 2022 易诚书苑有限公司 版权所有</div>
+                <div class="site-footer__copy"><i class="fa fa-copyright"></i>京ICP备*******8号</div>
+                <ul class="list-unstyled site-footer__links">
+                    <li><a href="#">服务条款</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

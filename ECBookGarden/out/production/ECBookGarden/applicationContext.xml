@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE beans [
+        <!ELEMENT beans (bean*)>
+        <!ELEMENT bean (property*)>
+        <!ELEMENT property (#PCDATA)>
+
+        <!ATTLIST bean id ID #REQUIRED>
+        <!ATTLIST bean class CDATA #IMPLIED>
+        <!ATTLIST property name CDATA #IMPLIED>
+        <!ATTLIST property ref IDREF #IMPLIED>
+        ]>
+
+<beans>
+
+    <bean id="page" class="com.cga.book.myssm.myspringmvc.PageController"/>
+    <bean id="userDAO" class="com.cga.book.garden.dao.Impl.UserDAOImpl"/>
+    <bean id="bookDAO" class="com.cga.book.garden.dao.Impl.BookDAOImpl"/>
+    <bean id="cartItemDAO" class="com.cga.book.garden.dao.Impl.CartItemDAOImpl"/>
+    <bean id="paperDAO" class="com.cga.book.garden.dao.Impl.PaperDAOImpl"/>
+    <bean id="orderDAO" class="com.cga.book.garden.dao.Impl.OrderDAOImpl"/>
+    <bean id="orderDetailDAO" class="com.cga.book.garden.dao.Impl.OrderDetailDAOImpl"/>
+    <bean id="adminDAO" class="com.cga.book.garden.dao.Impl.AdminDAOImpl"/>
+    <bean id="teaDAO" class="com.cga.book.garden.dao.Impl.TeaDAOImpl"/>
+    <bean id="replyDAO" class="com.cga.book.garden.dao.Impl.ReplyDAOImpl"/>
+    <bean id="loveDAO" class="com.cga.book.garden.dao.Impl.LoveDAOImpl"/>
+    <bean id="hotBookDAO" class="com.cga.book.garden.dao.Impl.HotBookDAOImpl"/>
+
+
+    <bean id="love" class="com.cga.book.garden.controller.LoveController">
+        <property name="loveService" ref="loveService"/>
+        <property name="hotBookService" ref="hotBookService"/>
+    </bean>
+    <bean id="loveService" class="com.cga.book.garden.service.impl.LoveServiceImpl">
+        <property name="loveDAO" ref="loveDAO"/>
+        <property name="bookService" ref="bookService"/>
+        <property name="teaService" ref="teaService"/>
+        <property name="hotBookService" ref="hotBookService"/>
+    </bean>
+
+    <bean id="tea" class="com.cga.book.garden.controller.TeaController">
+        <property name="teaService" ref="teaService"/>
+        <property name="hotBookService" ref="hotBookService"/>
+    </bean>
+
+    <bean id="reply" class="com.cga.book.garden.controller.ReplyController">
+        <property name="replyService" ref="replyService"/>
+        <property name="userService" ref="userService"/>
+        <property name="hostReplyService" ref="hostReplyService"/>
+    </bean>
+    <bean id="replyService" class="com.cga.book.garden.service.impl.ReplyServiceImpl">
+        <property name="replyDAO" ref="replyDAO"/>
+    </bean>
+    <bean id="hostReplyService" class="com.cga.book.garden.service.impl.HostReplyServiceImpl">
+        <property name="hostReplyDAO" ref="hostReplyDAO"/>
+    </bean>
+    <bean id="hostReplyDAO" class="com.cga.book.garden.dao.Impl.HostReplyDAOImpl"/>
+
+
+    <bean id="admin" class="com.cga.book.garden.controller.AdminController">
+        <property name="adminService" ref="adminService"/>
+        <property name="bookService" ref="bookService"/>
+        <property name="userService" ref="userService"/>
+        <property name="teaService" ref="teaService"/>
+    </bean>
+    <bean id="teaService" class="com.cga.book.garden.service.impl.TeaServiceImpl">
+        <property name="teaDAO" ref="teaDAO"/>
+    </bean>
+
+
+    <bean id="order" class="com.cga.book.garden.controller.OrderController">
+        <property name="cartItemService" ref="cartItemService"/>
+        <property name="orderService" ref="orderService"/>
+        <property name="orderDetailService" ref="orderDetailService"/>
+    </bean>
+    <bean id="orderService" class="com.cga.book.garden.service.impl.OrderServiceImpl">
+        <property name="orderDAO" ref="orderDAO"/>
+    </bean>
+    <bean id="orderDetailService" class="com.cga.book.garden.service.impl.OrderDetailServiceImpl">
+        <property name="orderDetailDAO" ref="orderDetailDAO"/>
+    </bean>
+
+
+    <bean id="paper" class="com.cga.book.garden.controller.PaperController">
+        <property name="paperService" ref="paperService"/>
+    </bean>
+    <bean id="paperService" class="com.cga.book.garden.service.impl.PaperServiceImpl">
+        <property name="paperDAO" ref="paperDAO"/>
+    </bean>
+
+
+    <bean id="cart" class="com.cga.book.garden.controller.CartController">
+        <property name="bookService" ref="bookService"/>
+        <property name="cartItemService" ref="cartItemService"/>
+        <property name="teaService" ref="teaService"/>
+        <property name="hotBookService" ref="hotBookService"/>
+    </bean>
+    <bean id="cartItemService" class="com.cga.book.garden.service.impl.CartItemServiceImpl">
+        <property name="cartItemDAO" ref="cartItemDAO"/>
+        <property name="bookService" ref="bookService"/>
+        <property name="orderService" ref="orderService"/>
+        <property name="teaService" ref="teaService"/>
+        <property name="hotBookService" ref="hotBookService"/>
+    </bean>
+
+
+    <bean id="book" class="com.cga.book.garden.controller.BookController">
+        <property name="bookService" ref="bookService"/>
+        <property name="hotBookService" ref="hotBookService"/>
+    </bean>
+    <bean id="bookService" class="com.cga.book.garden.service.impl.BookServiceImpl">
+        <property name="bookDAO" ref="bookDAO"/>
+    </bean>
+    <bean id="hotBookService" class="com.cga.book.garden.service.impl.HotBookServiceImpl">
+        <property name="hotBookDAO" ref="hotBookDAO"/>
+    </bean>
+
+
+    <bean id="user" class="com.cga.book.garden.controller.UserController">
+        <property name="userService" ref="userService"/>
+        <property name="replyService" ref="replyService"/>
+        <property name="loveService" ref="loveService"/>
+    </bean>
+    <bean id="userService" class="com.cga.book.garden.service.impl.UserServiceImpl">
+        <property name="userDAO" ref="userDAO"/>
+    </bean>
+    <bean id="adminService" class="com.cga.book.garden.service.impl.AdminServiceImpl">
+        <property name="adminDAO" ref="adminDAO"/>
+    </bean>
+
+</beans>

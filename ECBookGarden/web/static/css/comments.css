@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#beijyanse{
+    background-color: #C2FFEB;
+}
+
+
+.content {
+    width: 1050px;
+    margin: auto;
+    display: flex;
+    min-height: 500px; 
+}
+.zixun_box{
+    margin-top: 20px;
+    margin-left: 40px;
+    float: left;
+    max-width: 280px;
+    min-height: 550px;
+    /* display: flex; */
+    /* background-color: #ff5860; */
+}
+
+.menu-box {
+    float: left;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: 0.5px;
+    position: relative;
+    width: fit-content;
+    min-height:100px;
+    padding: 6px 12px;
+    box-sizing: border-box;
+    background-color: var(--color-menu-bg);
+}
+
+
+.menu-box input[type='checkbox'] {
+    display: none;
+}
+
+.menu {
+    float: left;
+    font-size: 20px;
+    width: 700px;
+    min-height: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    transition: width var(--transition-menu-time);
+    color: var(--font-color-mi);
+}
+.menu-box>input#menu-btn:checked~.menu {
+    width: 0;
+}
+
+.menu-title {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #1890ff;
+}
+
+.menu-item>label{
+    position: relative;
+    width: 100%;
+    height: 70px;
+    border-radius: var(--border-radius-mi);
+    display: flex;
+    align-items: center;
+}
+
+.menu-item>label:hover {
+    color: var(--font-color-mi-hover);
+}
+
+.menu-item>label>i:first-child {
+    flex: none;
+    /* margin-right: 100px; */
+    font-size: 30px;
+}
+.menu-item>label>p{
+    margin-left: 20px;
+}
+
+.menu-item>label>span {  
+    font-size: 15px;
+    flex: 1;
+}
+/* 图标过渡 */
+.menu-item>label>i:last-child {
+    flex: none;
+    font-size: 20px;
+    font-weight: 900;
+    transform: rotate(0deg);
+    transition: transform var(--transition-menu-time);
+}
+.menu-item>input:checked+label>i:last-child {
+    transform: rotate(180deg);
+}
+
+.menu-content {
+    margin-left: 80px;
+    margin-top: 30px;
+    height: 0;
+    overflow: hidden;
+    transition: height var(--transition-menu-time);
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--color-menu-bg);
+}
+/* 选项，若 n 项，就 n * 40px */
+#menu-item1:checked~.menu-content {
+    height: calc(3 * 130px);
+    /* min-height: 140px;
+    display: flex; */
+}
+#menu-item2:checked~.menu-content {
+    height: calc(3 * 130px);
+    /* min-height: 140px;
+    display: flex; */
+}
+#menu-item3:checked~.menu-content {
+    height: calc(3 * 130px);
+}
+#menu-item4:checked~.menu-content {
+    height: calc(3 * 130px);
+}
+#menu-item5:checked~.menu-content {
+    height: calc(3 * 130px);
+}
+#menu-item6:checked~.menu-content {
+    height: calc(3 * 130px);
+}
+#menu-item7:checked~.menu-content {
+    height: calc(3 * 130px);
+}
+#menu-item8:checked~.menu-content {
+    height: calc(3 * 130px);
+}
+#menu-item9:checked~.menu-content {
+    height: calc(3 * 130px);
+}
+#menu-item10:checked~.menu-content {
+    height: calc(3 * 130px);
+}
+
+
+.menu-content>span {
+    display: flex;
+    width: 100%;
+    min-height: 50px;
+    line-height: 40px;
+}
+.huifu__form{
+    display: flex;
+    width: 600px;
+    background-color: #C2FFEB;
+    min-height: 50px;
+}
+.huifu_form_box{
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+}
+textarea{
+    float: left;
+    display: flex;
+    width: 400px;
+    height: 40px;
+}
+.huifu_form_box>button{
+    float: left;
+    width: 100px;
+    height: 40px;
+}
+.menu-item{
+    margin-top: 40px;
+    border-bottom: #E5E5E5 solid 1px;
+}
+.title_box{
+    width: 900px;
+    height: 80px;
+    margin: auto;
+}
+.title_box>h3{
+    text-align: center;
+    font-size: 50px;
+    line-height: 60px;
+    font-weight:normal;
+    font-family: STXingkai;
+}
+
+
+
+
+.comment-block__single {
+	width: 100%;
+    min-height: 100px;
+	display: flex;
+    /* background-color: #1890ff; */
+}
+
+.comment-block__single+.comment-block__single {
+	border-top: 1px solid #e5e5e5;
+}
+
+
+.inner-block{
+    margin-top: 20px;
+    width: 80px;
+    height: 80px;
+}
+
+.comment-block__content {
+    margin-top: 20px;
+	position: relative;
+	padding-left: 5px;
+	-webkit-box-flex: 1;
+	-ms-flex: 1 1 calc(100% - 80px);
+	flex: 1 1 calc(100% - 80px);
+}
+
+.comment-block__title,
+.comment__title {
+	margin: 0;
+	color: #222222;
+	font-size: 24px;
+	font-weight: 500;
+}
+
+.comment__title {
+	margin-bottom: 40px;
+}
+
+.comment-block__title {
+	font-size: 20px;
+	line-height: 1em;
+}
+
+.comment-block__text {
+	margin: 0;
+	font-size: 15px;
+	line-height: 26px;
+	margin-top: 10px;
+}
+
+.comment-block__date {
+	font-size: 15px;
+	font-style: italic;
+	color: #848484;
+	margin: 0;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.comment-block__btn {
+	font-size: 15px;
+	padding: 4px 15px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.product-details__tab .comment-block {
+	margin-top: 0;
+	margin-bottom: 50px;
+}
+
+.leave-comment__input {
+	/* border: none; */
+    font-family: "Rubik";
+	outline: none;
+	background-color:rgb(233, 255, 238);
+	width: 650px;
+	height: 55px;
+	border: 1px solid #666666;
+	padding-left: 20px;
+	display: block;
+	margin-bottom: 30px;
+	border-radius: 3px;
+}
+
+textarea.leave-comment__input {
+	height: 80px;
+	padding-top: 10px;
+}
+
+.thm-btn {
+	border: none;
+	outline: none;
+	background-color: #ff5860;
+	display: inline-block;
+	vertical-align: middle;
+	font-family: "Rubik";
+	font-weight: 600;
+	font-size: 17px;
+	color: #fff;
+	padding: 18px 31.4px;
+	-webkit-transition: all .4s ease;
+	transition: all .4s ease;
+}
+
+.thm-btn:hover {
+	background-color: #222222;
+	color: #fff;
+}
+#pinglun{
+    margin-top: 20px;
+}
+
+.mingyan_all{
+    float: left;
+    width: 280px;
+    height: 60px;
+    background-color: #00f9a6;
+    border-bottom: #1890ff solid 2px;
+}
+.mingyan_all>p{
+    font-size: 30px;
+    line-height: 60px;
+    text-align: center;
+    color: #46039c;
+    font-family: STKaiti;
+    font-weight: bold;
+}
+.minyan_box{
+    float: left;
+    width: 280px;
+    height: 40px;
+    border-bottom: #666666 solid 1px;
+}
+.minyan_box>p{
+    font-size: 14px;
+    line-height: 40px;
+    font-family: STKaiti;
+    font-weight: bold;
+}

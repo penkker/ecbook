@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>易诚书苑</title>
+    <link rel="stylesheet" th:href="@{/static/css/index/normalize.css}">
+    <link rel="stylesheet" th:href="@{/static/css/index/actionImg.css}">
+    <link rel="stylesheet" th:href="@{/static/css/index/index.css}">
+    <link rel="stylesheet" th:href="@{/static/css/index/reset.css}">
+    <script language="JavaScript" th:src="@{/static/js/main.js}"></script>
+    <!--<script language="JavaScript" th:src="@{/static/js/vue.js}"></script>-->
+    <!--<script language="JavaScript" th:src="@{/static/js/axios.min.js}"></script>-->
+    <style>
+        /* 设置logo背景 */
+        .logo_box{
+            width: 100%;
+            height: 150px;
+            margin: auto;
+            background-image: url("http://localhost:8080/ECBookGarden/static/temp_imgs/logobj.png");
+        }
+        /* 设置logo */
+        .logo{
+            width: 600px;
+            height: 150px;
+            background-image: url("http://localhost:8080/ECBookGarden/static/temp_imgs/logo.png");
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="max_box">
+    <!-- logo -->
+    <div class="logo_box">
+        <div class="logo"></div>
+    </div>
+    <!-- 导航条 -->
+    <div class="nav_box">
+        <div class="nav_box_lf">
+            <a href="./index.html">
+                <img th:src="@{/static/temp_imgs/shu_logo.png}" alt="">
+            </a>
+        </div>
+        <ul class="nav">
+            <li>
+                <a href="#">网站概览</a>
+            </li>
+            <li >
+                <a href="#">在线阅览</a>
+            </li>
+            <li id="good_boxss">
+                <a href="#">进入书库</a>
+                <!-- <ul>
+                    <li><a href="#">Java</a></li>
+                    <li><a href="#">Javascript</a></li>
+                    <li><a href="#">HTML</a></li>
+                </ul> -->
+            </li>
+            <!--
+                <form action="">
+                    <input id="ssl" type="text" placeholder="请输入图书名称">
+                    <input id="btn1" type="submit" text="">
+                    <button id="btn1">
+                        搜索
+                    </button>
+                </form>  -->
+
+            <!-- <li>
+                <a href="#">
+                <button>
+                    搜索
+                </button>
+                </a>
+            </li> -->
+            <li>
+                <a href="#">爱好</a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                    购物车</a>
+            </li>
+            <li>
+                <a href="#">个人中心</a>
+            </li>
+            <!-- 创建一个弹出层 -->
+            <div class="goods-info">
+                <div class="nav_min_max">
+                    <ui class="nav_min">
+                        <li>
+                            <a href="">文学</a>
+                        </li>
+                        <li>
+                            <a href="">科技</a>
+                        </li>
+                        <li>
+                            <a href="">生活</a>
+                        </li>
+                        <li>
+                            <a href="">小说</a>
+                        </li>
+                    </ui>
+                </div>
+            </div>
+        </ul>
+        <div class="search-wrapper">
+            <form class="search" th:action="@{/book.do}" method="post">    <!--                               -->
+                <input type="hidden" name="operate" value="getBookListGuest">
+                <input class="search-inp" type="text" name="bookName">
+                <!--                <button @click="getBook" class="search-btn">-->
+                <!--                    <img th:src="@{/static/temp_imgs/sousuo_btn.png}" alt="搜索按钮">-->
+                <!--                </button>-->
+                <input type="image" class="search-btn" th:src="@{/static/temp_imgs/sousuo_btn.png}">
+            </form>
+        </div>
+    </div>
+    <!-- 轮播图 -->
+    <div class="lbt_box">
+        <div class="app">
+            <div class="scroll">
+                <!-- 图片展示 -->
+                <img th:src="@{/static/temp_imgs/one.png}" alt="scrollImage" class="img current">
+                <img th:src="@{/static/temp_imgs/two.png}" alt="scrollImage" class="img">
+                <img th:src="@{/static/temp_imgs/three.png}" alt="scrollImage" class="img">
+                <img th:src="@{/static/temp_imgs/four.png}" alt="scrollImage" class="img">
+                <img th:src="@{/static/temp_imgs/five.png}" alt="scrollImage" class="img">
+                <!-- 左右箭头的展示 -->
+                <div class="lf"><</div>
+                <div class="lr">></div>
+                <!-- 小圆点展示 -->
+                <div class="dots">
+                    <span class="square"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 文学类 -->
+    <div class="wenx">
+        <div class="lf_box1">
+            <div class="wenx_list">
+                <!-- 创建标题标签 -->
+                <h2 class="wenx_title">
+                    <a href="#">文学</a>
+                </h2>
+                <!-- 创建一个图片容器 -->
+                <div class="wenx_img">
+                    <a href="#">
+                        <img th:src="@{/static/temp_imgs/wenx_list.png}" alt="文学">
+                        <h3 class="img_title">
+                            我们必须继承一切优秀的文学艺术遗产。——毛泽东
+                        </h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="ll_box1"></div>
+        <div class="lr_box1">
+            <div class="keji_list_cube">
+                <!-- 创建一个外部的容器 -->
+                <div class="cube_one">
+                    <!-- 引入图片 -->
+                    <div class="cube_box1">
+                        <img th:src="@{/static/temp_imgs/ceshi.png}">
+                    </div>
+
+                    <div class="cube_box2">
+                        <img th:src="@{/static/temp_imgs/code_one (2).jpg}">
+                    </div>
+
+                    <div class="cube_box3">
+                        <img th:src="@{/static/temp_imgs/code_one (3).jpg}">
+                    </div>
+
+                    <div class="cube_box4">
+                        <img th:src="@{/static/temp_imgs/code_one (4).jpg}">
+                    </div>
+
+                    <div class="cube_box5">
+                        <img th:src="@{/static/temp_imgs/code_one (5).jpg}">
+                    </div>
+
+                    <div class="cube_box6">
+                        <img th:src="@{/static/temp_imgs/code_one (6).jpg}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 科技类 -->
+    <div class="keji">
+        <div class="lf_box2">
+            <div class="wenx_list_cube">
+                <!-- 创建一个外部的容器 -->
+                <div class="cube_two">
+                    <!-- 引入图片 -->
+                    <div class="cube_box1">
+                        <img th:src="@{/static/temp_imgs/code_one (1).jpg}">
+                    </div>
+
+                    <div class="cube_box2">
+                        <img th:src="@{/static/temp_imgs/code_one (2).jpg}">
+                    </div>
+
+                    <div class="cube_box3">
+                        <img th:src="@{/static/temp_imgs/code_one (3).jpg}">
+                    </div>
+
+                    <div class="cube_box4">
+                        <img th:src="@{/static/temp_imgs/code_one (4).jpg}">
+                    </div>
+
+                    <div class="cube_box5">
+                        <img th:src="@{/static/temp_imgs/code_one (5).jpg}">
+                    </div>
+
+                    <div class="cube_box6">
+                        <img th:src="@{/static/temp_imgs/code_one (6).jpg}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ll_box2"></div>
+        <div class="lr_box2">
+            <div class="keji_list">
+                <!-- 创建标题标签 -->
+                <h2 class="keji_title">
+                    <a href="#">科技</a>
+                </h2>
+                <!-- 创建一个图片容器 -->
+                <div class="keji_img">
+                    <a href="#">
+                        <img th:src="@{/static/temp_imgs/keji_list.png}" alt="科技">
+                        <h3 class="img_title2">
+                            科学的每一项巨大成就，都是以大胆的幻想为出发点的。
+                        </h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 生活类 -->
+    <div class="life">
+        <div class="lf_box3">
+            <div class="life_list">
+                <!-- 创建标题标签 -->
+                <h2 class="life_title">
+                    <a href="#">生活</a>
+                </h2>
+                <!-- 创建一个图片容器 -->
+                <div class="life_img">
+                    <a href="#">
+                        <img th:src="@{/static/temp_imgs/life_list.png}" alt="生活">
+                        <h3 class="img_title3">
+                            生活中没有理想的人，是可怜的人。——屠格涅夫
+                        </h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="ll_box3"></div>
+        <div class="lr_box3">
+            <div class="keji_list_cube">
+                <!-- 创建一个外部的容器 -->
+                <div class="cube_three">
+                    <!-- 引入图片 -->
+                    <div class="cube_box1">
+                        <img th:src="@{/static/temp_imgs/code_one (1).jpg}">
+                    </div>
+
+                    <div class="cube_box2">
+                        <img th:src="@{/static/temp_imgs/code_one (2).jpg}">
+                    </div>
+
+                    <div class="cube_box3">
+                        <img th:src="@{/static/temp_imgs/code_one (3).jpg}">
+                    </div>
+
+                    <div class="cube_box4">
+                        <img th:src="@{/static/temp_imgs/code_one (4).jpg}">
+                    </div>
+
+                    <div class="cube_box5">
+                        <img th:src="@{/static/temp_imgs/code_one (5).jpg}">
+                    </div>
+
+                    <div class="cube_box6">
+                        <img th:src="@{/static/temp_imgs/code_one (6).jpg}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 小说类 -->
+    <div class="novel">
+        <div class="lf_box4">
+            <div class="wenx_list_cube">
+                <!-- 创建一个外部的容器 -->
+                <div class="cube_four">
+                    <!-- 引入图片 -->
+                    <div class="cube_box1">
+                        <img th:src="@{/static/temp_imgs/code_one (1).jpg}">
+                    </div>
+
+                    <div class="cube_box2">
+                        <img th:src="@{/static/temp_imgs/code_one (2).jpg}">
+                    </div>
+
+                    <div class="cube_box3">
+                        <img th:src="@{/static/temp_imgs/code_one (3).jpg}">
+                    </div>
+
+                    <div class="cube_box4">
+                        <img th:src="@{/static/temp_imgs/code_one (4).jpg}">
+                    </div>
+
+                    <div class="cube_box5">
+                        <img th:src="@{/static/temp_imgs/code_one (5).jpg}">
+                    </div>
+
+                    <div class="cube_box6">
+                        <img th:src="@{/static/temp_imgs/code_one (6).jpg}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ll_box4"></div>
+        <div class="lr_box4">
+            <div class="novel_list">
+                <!-- 创建标题标签 -->
+                <h2 class="novel_title">
+                    <a href="#">小说</a>
+                </h2>
+                <!-- 创建一个图片容器 -->
+                <div class="novel_img">
+                    <a href="#">
+                        <img th:src="@{/static/temp_imgs/novel_list.png}" alt="小说">
+                        <h3 class="img_title4">
+                            小说艺术的精髓就是创造人物的艺术。
+                        </h3>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 推荐信息 -->
+    <div class="recomend_maxbox">
+        <div class="recomend_title">
+            <div class="xian"></div>
+            <h2 class="recomend_h">
+                推荐书籍
+            </h2>
+            <div></div>
+        </div>
+        <div class="recomend_onebox">
+            <div class="onebox_lf">
+                <div class="onerlf_list">
+                    <!-- 创建一个图片容器 -->
+                    <div class="onelf_img">
+                        <a href="#">
+                            <img th:src="@{/static/temp_imgs/xiyouji_list.png}" alt="西游记">
+                        </a>
+                        <!-- 创建标题标签 -->
+                        <h2 class="recomend_text">
+                            <a href="#">西游记</a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="onebox_lr">
+                <div class="onerlr_list">
+                    <!-- 创建一个图片容器 -->
+                    <div class="onelr_img">
+                        <a href="#">
+                            <img th:src="@{/static/temp_imgs/honglm_list.png}" alt="红楼梦">
+                        </a>
+                        <!-- 创建标题标签 -->
+                        <h2 class="recomend_text">
+                            <a href="#">红楼梦</a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="recomend_twobox">
+            <div class="twobox_lf">
+                <div class="tworlf_list">
+                    <!-- 创建一个图片容器 -->
+                    <div class="twolf_img">
+                        <a href="#">
+                            <img th:src="@{/static/temp_imgs/shuihz.png}" alt="水浒传">
+                        </a>
+                        <!-- 创建标题标签 -->
+                        <h2 class="recomend_text">
+                            <a href="#">水浒传</a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="twobox_lr">
+                <div class="tworlr_list">
+                    <!-- 创建一个图片容器 -->
+                    <div class="twolr_img">
+                        <a href="#">
+                            <img th:src="@{/static/temp_imgs/sangyanyi_list.png}" alt="三国演义">
+                        </a>
+                        <!-- 创建标题标签 -->
+                        <h2 class="recomend_text">
+                            <a href="#">三国演义</a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="recomend_threebox">
+            <div class="threebox_lf">
+                <div class="threelf_list">
+                    <!-- 创建一个图片容器 -->
+                    <div class="threelf_img">
+                        <a href="#">
+                            <img th:src="@{/static/temp_imgs/shuihz.png}" alt="科技">
+                        </a>
+                        <!-- 创建标题标签 -->
+                        <h2 class="recomend_text">
+                            <a href="#">科技</a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="threebox_ll">
+                <div class="threerll_list">
+                    <!-- 创建一个图片容器 -->
+                    <div class="threell_img">
+                        <a href="#">
+                            <img th:src="@{/static/temp_imgs/shuihz.png}" alt="生活">
+                        </a>
+                        <!-- 创建标题标签 -->
+                        <h2 class="recomend_text">
+                            <a href="#">生活</a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="lll">
+
+            </div>
+            <div class="threebox_lr">
+                <div class="threerlr_list">
+                    <!-- 创建一个图片容器 -->
+                    <div class="threelr_img">
+                        <a href="#">
+                            <img th:src="@{/static/temp_imgs/honglm_list.png}" alt="小说">
+                        </a>
+                        <!-- 创建标题标签 -->
+                        <h2 class="recomend_text">
+                            <a href="#">小说</a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="miny_box">
+        <div class="miny_box_title">
+            <h2 class="miny_h2">
+                发奋识遍天下字，立志读尽人间书。——苏轼
+            </h2>
+        </div>
+    </div>
+</div>
+</body>
+</html>

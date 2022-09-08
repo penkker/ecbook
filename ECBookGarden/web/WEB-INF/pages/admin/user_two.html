@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <title>个性化推荐</title>
+    <link rel="icon" th:href="@{/static/imgs/shu_logo.ico}" type="image/x-icon">
+    <!-- 导入阿里的图标样式文件 -->
+    <link rel="stylesheet" th:href="@{/static/css/iconfont.css}">
+    <link rel="stylesheet" th:href="@{/static/css/index_admin.css}">
+    <!-- <link rel="stylesheet" href="./css/index_all_admin.css"> -->
+    <link rel="stylesheet" th:href="@{/static/css/user_two.css}">
+    <script language="JavaScript" th:src="@{/static/js/axios.min.js}"></script>
+    <script language="JavaScript" th:src="@{/static/js/vue.min.js}"></script>
+    <script language="JavaScript" th:src="@{/static/js/showUserInfo.js}"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+    <base th:href="@{/}"/>
+</head>
+<body>
+    <!-- 设置头部栏 -->
+    <div class="hard_box">
+        <div class="hard_logo">
+            <img th:src="@{/static/imgs/logo_lr.png}" alt="logo">
+        </div>
+        <div class="hard_title">
+            <h3>后台管理中心</h3>
+        </div>
+    </div>
+    <div class="content">
+        <div class="menu-box">
+            <!-- 展示与隐藏侧边栏 开始-->
+            <input type="checkbox" id="menu-btn">
+            <label for="menu-btn"><i class="iconfont icon-yemianfanhui"></i></label>
+            <!-- 展示与隐藏侧边栏 结束-->
+            <div class="menu">
+                <!-- 侧边栏的标题 开始-->
+                <!-- <div class="menu-title">
+                    <h3>易诚书苑</h3>
+                </div> -->
+                <!-- 侧边栏的标题 结束-->
+
+                <!-- 每一项导航 -->
+                <div class="menu-item">
+                    <input type="checkbox" id="menu-item1">
+                    <label for="menu-item1">
+                        <i class="menu-item-icon iconfont icon-a-01-shujuzhongxin"></i>
+                        <span>图书管理</span>
+                        <i class="menu-item-last iconfont icon-down"></i>
+                    </label>
+                    <div class="menu-content">
+                        <span>
+                            <a th:href="@{/page.do(operate='page',page='admin/book_one')}">进货详情</a>
+                        </span>
+                        <span>
+                            <a th:href="@{/page.do(operate='page',page='admin/book_two')}">销售详情</a>
+                        </span>
+                        <span>
+                            <a th:href="@{/page.do(operate='page',page='admin/book_three')}">库存信息</a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <input type="checkbox" id="menu-item2">
+                    <label for="menu-item2" >
+                        <i class="menu-item-icon iconfont icon-a-02-kechengguanli"></i>
+                        <span>浏览记录</span>
+                        <i class="menu-item-last iconfont icon-down"></i>
+                    </label>
+                    <div class="menu-content">
+                        <span>
+                            <a th:href="@{/page.do(operate='page',page='admin/look_one')}"> 管理员登录时间</a>
+                        </span>
+                        <span>
+                            <a th:href="@{/page.do(operate='page',page='admin/look_two')}"> 用户登录时间</a>
+                        </span>
+                    </div>
+                </div>
+ 
+                <div class="menu-item">
+                    <input type="checkbox" id="menu-item3">
+                    <label for="menu-item3" style="color: #2DC2AB;">
+                        <i class="menu-item-icon iconfont icon-a-04-zixunfabu"></i>
+                        <span>用户管理</span>
+                        <i class="menu-item-last iconfont icon-down"></i>
+                    </label>
+                    <div class="menu-content">
+                        <span>
+                            <a th:href="@{/page.do(operate='page',page='admin/user_one')}">页面停留时间</a>
+                        </span>
+                        <span>
+                            <a th:href="@{/page.do(operate='page',page='admin/user_two')}" style="color: #2DC2AB;">个性化推荐</a>
+                        </span>
+                        <span>
+                            <a th:href="@{/page.do(operate='page',page='admin/user_three')}">用户信息</a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <input type="checkbox" id="menu-item4">
+                    <label for="menu-item4">
+                        <i class="menu-item-icon iconfont icon-a-04-zixunfabu"></i>
+                        <span>财务管理</span>
+                        <i class="menu-item-last iconfont icon-down"></i>
+                    </label>
+                    <div class="menu-content">
+                        <span>
+                            <a th:href="@{/page.do(operate='page',page='admin/money_one')}">入库价格</a>
+                        </span>
+                        <span>
+                            <a th:href="@{/page.do(operate='page',page='admin/money_two')}">销售价格</a>
+                        </span>
+                        <span>
+                            <a th:href="@{/page.do(operate='page',page='admin/money_three')}">营业额</a>
+                        </span>
+                    </div>
+                </div>
+
+
+                <!-- <div class="set-line"></div> -->
+
+                <div class="menu-item">
+                    <label>
+                        <i class="menu-item-icon iconfont icon-a-08-shezhi"></i>
+                        <span id="set">
+                            <a th:href="@{/page.do(operate='page',page='admin/set_index')}">设置</a>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <div class="text_max_box" id="user">
+                <div class="text_title_box">
+                    <div class="title">
+                        <h3>
+                            个性化推荐
+                        </h3>
+                    </div>
+                </div>
+                <div class="shuipingxian">
+        
+                </div>
+                <div class="time_box_max"  id="app">
+                    <div class="time_box_title">
+                        <div class="time_title_one">
+                            <h3>
+                                账号
+                            </h3>
+                        </div>
+                        <div class="time_title_two">
+                            <h3>
+                                昵称
+                            </h3>
+                        </div>
+                        <div class="time_title_three">
+                            <h3>
+                                日期
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="time_text_box">
+                        <div class="id_text_box">
+                            <input class="search-inp"  name="userNum" v-model="userNum" type="text" placeholder="用户ID/账号"/>
+                        </div>
+                        <div class="name_text_box">
+                            <input class="search-inp" name="nickName" v-model="uname" type="text" placeholder="用户昵称"/>
+                        </div>
+                        <div class="time_box" style="margin-top: 10px;">
+                            <el-date-picker :clearable='false' style='border: 2px solid rgb(224, 224, 224);' v-model="middle" value-format="yyyy-MM-dd HH:mm:ss" type="daterange" range-separator="至" start-placeholder="2022-03-15" end-placeholder="2022-04-13">
+                            </el-date-picker>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list_max_box">
+                    <div class="list_down">
+                        <a href="#">
+                            下载数据
+                        </a>
+                    </div>
+                </div>
+                <div class="listss_box">
+                    <div class="listss">
+                        <div class="listss_one">
+                            用户信息
+                        </div>
+                        <div class="listss_two">
+                            文学类收藏量(本)
+                        </div>
+                        <div class="listss_three">
+                            科技类收藏量(本)
+                        </div>
+                        <div class="listss_four">
+                            生活类收藏量(本)
+                        </div>
+                        <div class="listss_five">
+                            小说类收藏量(本)
+                        </div>
+                        <div class="listss_seven">
+                            推荐类型
+                        </div>
+                    </div>
+                </div>
+                <div class="listss_text" v-for="user in userList">
+                    <div class="listss_text_one">
+                        <div class="text_one_img">
+                            <img v-bind:src="'static/imgs/'+user.headImg" alt="头像">
+                        </div>
+                        <div class="text_one_alltitle">
+                            <div class="alltitle_top">
+                                {{user.uname}}
+                            </div>
+                            <div class="alltitle_bottom">
+                                <span>用户ID:</span>
+                                <P>{{user.userNum}}</P>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="listss_text_three">
+                        6
+                    </div>
+                    <div class="listss_text_three">
+                        9
+                    </div>
+                    <div class="listss_text_four">
+                        0
+                    </div>
+                    <div class="listss_text_five">
+                        28
+                    </div>
+                    <div class="listss_text_fenchengbi">
+                        小说类
+                    </div>
+                </div>
+                <div class="xian_two">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

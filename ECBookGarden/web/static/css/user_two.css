@@ -1,0 +1,536 @@
+.title{
+    width: 200px;
+    height: 70px;
+    margin-left: 10px;
+    font-size: 28px;
+    border-radius: 30px;
+    
+}
+.title>h3{
+    margin: 5px 10px;
+    background-color: #aef5ea75;
+    color: #2DC2AB;
+    line-height: 50px;
+}
+
+
+*{margin:0px; padding: 0px; }
+
+
+
+    .text_max_box{
+        float: right;
+        width: 0;
+        margin: 0;
+        flex: 1 1;
+        display: flex;
+        flex-direction: column;
+        align-self: stretch;
+        height: 100%;
+        
+    }
+
+    .text_title_box{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 24px 32px;
+        position: relative;
+        /* background-color: aqua; */
+    }
+
+    .lr_title{
+        width: 1150px;
+        height: 170px;
+        background-color: antiquewhite;
+        
+    }
+
+    
+
+    .time_box_max{
+        width: 1100px;
+        height: 100px;
+        margin-left: 0px;
+        /* background-color: aqua; */
+    }
+
+    .time_box_title{
+        width: 1000px;
+        height: 40px;
+        margin: auto;
+        
+    }
+
+    .time_title_one{
+        width: 250px;
+        float: left;
+        height: 40px;
+        /* background-color: aquamarine; */
+    }
+
+    .time_title_two{
+        width: 250px;
+        float: left;
+        height: 40px;
+        /* background-color: rgb(223, 207, 116); */
+    }
+
+    .time_title_three{
+        width:480px;
+        float: left;
+        height: 40px;
+        /* background-color: rgb(184, 131, 63); */
+    }
+
+    .time_box_title h3{
+        font-size: 18px;
+        line-height: 40px;
+        font-weight: normal;
+    }
+
+    .time_text_box{
+        width: 1100px;
+        height: 60px;
+        /* background-color: antiquewhite; */
+    }
+
+    .id_text_box{
+        width: 250px;
+        height: 60px;
+        float: left;
+        /* background-color: red; */
+        /* background-color: #89f097; */
+        margin-left: 28px;
+    }
+
+    .id_text_box .search-inp{
+        box-sizing: border-box;
+        width: 230px;
+        border: none;
+        float: left;
+        padding: 5px 10px;
+        margin: 10px 20px;
+        height: 40px;
+        font-size: 16px;
+        border: 2px solid rgb(224, 224, 224);
+        outline: none;
+        border-radius: 3px;
+    
+    }
+    
+
+    /* 设置input获取焦点后的样式 */
+     .search-inp:focus,
+     .search-inp:focus + button{
+        border-color: #2DC2AB;
+    }
+    
+
+    
+    .name_text_box{
+        width: 250px;
+        height: 60px;
+        float: left;
+        /* background-color: red; */
+        /* background-color: #89f097; */
+        margin-left: 23px;
+        
+    }
+    
+    .name_text_box .search-inp{
+        box-sizing: border-box;
+        width: 230px;
+        border: none;
+        float: left;
+        padding: 5px 10px;
+        margin: 10px 0;
+        height: 40px;
+        font-size: 16px;
+        border: 2px solid rgb(224, 224, 224);
+        outline: none;
+        border-radius: 3px;
+    
+    }
+    
+    /* 设置input获取焦点后的样式 */
+     .search-inp:focus,
+     .search-inp:focus + button{
+        border-color: #2DC2AB;
+    }
+    
+    
+    .time_box{
+        width: 480px;
+        height: 60px;
+        float: left;
+        /* background-color: red; */
+        /* background-color: #89f097;   */
+    }
+    
+    .time_box .search-inp{
+        box-sizing: border-box;
+        width: 230px;
+        border: none;
+        float: left;
+        padding: 5px 10px;
+        margin: 5px 0;
+        height: 40px;
+        font-size: 16px;
+        border: 2px solid rgb(224, 224, 224);
+        outline: none;
+        border-radius: 8px;
+    
+    }
+
+    .time_box .search-inplr{
+        box-sizing: border-box;
+        width: 230px;
+        border: none;
+        float: right;
+        padding: 5px 10px;
+        margin: 5px 0;
+        height: 40px;
+        font-size: 16px;
+        border: 2px solid rgb(224, 224, 224);
+        outline: none;
+        border-radius: 8px;
+    
+        
+    }
+    /* 设置input获取焦点后的样式 */
+    .search-inplr:focus,
+     .search-inplr:focus + button{
+        border-color: #2DC2AB;
+    }
+    .time_box p{
+        float: left;
+        line-height: 45px;
+        font-size: 20px;
+    }
+    /* 设置input获取焦点后的样式 */
+    .search-inp:focus,
+     .search-inp:focus + button{
+        border-color: #2DC2AB;
+    }
+ 
+    .list_max_box{
+        width: 1130px;
+        height: 100%;
+        /* background-color: rgba(153, 206, 252, 0.521); */
+        margin-left: 50px;
+    }
+    
+    .list_p p{
+        float: left;
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    .list_mouth{
+        float: left;
+        font-size: 16px;
+        line-height: 30px;
+        font-weight: bold;
+    }
+
+    .list_down{
+        float: right;
+        width: 100px;
+        height: 40px;
+        border: 1px;
+        border-color:  #898A9A;
+        border-radius: 5px;
+        text-align: center;
+        line-height: 40px;
+        border-style: solid;
+    }
+    .list_down a{
+        display: block;
+        /* 去除下划线 */
+        text-decoration: none;
+        /* 设置字体颜色 */
+        color: #333333;
+    }
+    .list_down a:hover{
+        color: #2DC2AB;  
+    }
+    .titless_box{
+        width: 1200px;
+        height: 50px;
+        margin-left: 40px;
+        /* background-color: #FF6700; */
+    }
+    .titless_allone{
+        float: left;
+        font-size: 18px;
+        margin: 0 55px 0 15px;
+        /* background-color: aliceblue; */
+    }
+    .titless{
+        float: left;
+        width: 150px;
+        height: 50px;
+        /* background-color: aqua; */
+    }
+    .titless a{
+        font-size: 18px;
+        margin-left: 15px;
+        /* 去除下划线 */
+        text-decoration: none;
+        /* 设置字体颜色 */
+        color: #333333;
+        border-radius: 5px;
+        padding: 5px;
+    }
+    /* 设置鼠标移入的效果 */
+    .titless a:hover{
+        background-color: #aef5ea75;
+        color: #2DC2AB;
+    }
+
+    .listss{
+        /* margin-top: 10px; */
+        width: 1220px;
+        height: 60px;
+        background-color: #FAFAFA;
+        /* margin-left: 40px; */
+    }
+
+    .listss_one{
+        float: left;
+        font-size: 18px;
+        width: 300px;
+        height: 60px;
+        color: #898A8C;
+        line-height: 60px;
+        margin-left: 20px;
+        text-align: center;
+        /* background-color: #FF5B18; */
+    }
+    
+    
+    .listss_two{
+        float: left;
+        font-size: 18px;
+        width: 180px;
+        height: 60px;
+        color: #898A8C;
+        line-height: 60px;
+        text-align: center;
+        /* background-color: #11a88f; */
+    }
+    .listss_three{
+        float: left;
+        font-size: 18px;
+        width: 180px;
+        height: 60px;
+        color: #898A8C;
+        line-height: 60px;
+        text-align: center;
+        /* background-color: #11a88f; */
+    }
+    .listss_four{
+        float: left;
+        font-size: 18px;
+        width: 180px;
+        height: 60px;
+        color: #898A8C;
+        line-height: 60px;
+        text-align: center;
+        /* background-color: #7ba811; */
+    }
+    .listss_five{
+        float: left;
+        font-size: 18px;
+        width: 160px;
+        height: 60px;
+        color: #898A8C;
+        line-height: 60px;
+        text-align: center;
+        /* background-color: #7ba811; */
+    }
+    .listss_seven{
+        float: left;
+        font-size: 18px;
+        width: 160px;
+        height: 60px;
+        color: #898A8C;
+        line-height: 60px;
+        text-align: center;
+        -webkit-box-shadow: 0 0.25rem 1rem rgba(48, 55, 66, 0.15);
+        box-shadow:-5px 0 15px -5px rgba(48, 55, 66, 0.15);
+        padding-left: 20px;
+        /* background-color: #ff5a18; */
+    }
+
+    
+    .listss_text{
+        width: 1220px;
+        height: 80px;
+        margin-left: 40px;
+        /* background-color: #333333; */
+    }
+
+    .listss_text_one{
+        margin-left: 20px;
+        float: left;
+        width: 300px;
+        height: 80px;
+    }
+    .text_one_img{
+        float: left;
+        height: 60px;
+        width: 60px;
+        margin: 10px;
+        /* background-color: #2DC2AB; */
+        
+    }
+    .text_one_img img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+    .text_one_alltitle{
+        float: right;
+        width: 200px;
+        height: 80px;
+    }
+    .alltitle_top{
+        width: 200px;
+        height: 40px;
+        font-size: 18px;
+        line-height: 40px;
+    }
+    .alltitle_bottom{
+        width: 200px;
+        height: 40px;
+        font-size: 16px;
+        color: #898A8C;
+        line-height: 40px;
+    }
+    .alltitle_bottom>span,.alltitle_bottom>p{
+        float: left;
+    }
+
+    .listss_text_two{
+        float: left;
+        font-size: 18px;
+        width: 180px;
+        height: 80px;
+        line-height: 80px;
+        text-align: center;
+        /* background-color: #FF5B18; */
+    }
+    .listss_text_three{
+        float: left;
+        font-size: 18px;
+        width: 180px;
+        height: 80px;
+        line-height: 80px;
+        text-align: center;
+        /* background-color: #FF5B18; */
+    }
+    .listss_text_four{
+        float: left;
+        font-size: 18px;
+        width: 180px;
+        height: 80px;
+        line-height: 80px;
+        text-align: center;
+        /* background-color: #ffebe3; */
+    }
+    .listss_text_five{
+        float: left;
+        font-size: 18px;
+        width: 160px;
+        height: 80px;
+        text-align: center;
+        line-height: 80px;
+        /* background-color: #5e392b; */
+    }
+    .listss_text_fenchengbi{
+        float: left;
+        font-size: 18px;
+        width: 160px;
+        height: 80px;
+        line-height: 80px;
+        /* background-color: #e3fbff; */
+        -webkit-box-shadow: 0 0.25rem 1rem rgba(48, 55, 66, 0.15);
+        box-shadow:-15px 0 15px -15px rgba(48, 55, 66, 0.15);
+        padding-left: 20px;
+        text-align: center;
+    }
+    .listss_text_fenchengbi>a{
+        color: #ff1818;
+    }
+
+    .listss_box{
+        margin-top: 10px;
+        width: 1350px;
+        height: 60px;
+        /* background-color: aqua; */
+        margin-left: 40px;
+    }
+    #listss_box_lr{
+        position: fixed;
+        top: 486px;
+        left: 1200px;
+        width: 350px;
+        height: 60px;
+        font-size: 18px;
+        line-height: 60px;
+        background-color: #FAFAFA;
+        color: #898A8C;
+        -webkit-box-shadow: 0 0.25rem 1rem rgba(48, 55, 66, 0.15);
+        box-shadow:-15px 0 15px -15px rgba(48, 55, 66, 0.15);
+    }
+
+    .shuipingxian{
+        margin-left: 50px;
+        width: 1220px;
+        height: 5px;
+        color: #E2E2E2;
+        /* background-color: #FF5B18; */
+        border:1px;
+        border-style:dashed none none none;
+    }
+    .titless_all{
+        float: left;
+        width: 150px;
+        height: 50px;
+        /* background-color: aqua; */
+    }
+    .titless_all a{
+        /* display: block; */
+        font-size: 18px;
+        margin-left: 15px;
+        background-color: #aef5ea75;
+        color: #2DC2AB;
+        /* 去除下划线 */
+        text-decoration: none;
+        border-radius: 5px;
+        padding: 5px;  
+    }
+    .xian_two{
+        margin-left: 45px;
+        width: 1220px;
+        height: 1px;
+        color: #e7e7e7;
+        border:1px;
+        border-style:solid none none none;
+    }
+
+
+    .el-date-table td.end-date span, .el-date-table td.start-date span{
+        background: #0ecfb2f8;
+    }
+    .el-date-table td.today span{
+        color: #2DC2AB;
+    }
+    .el-date-editor .el-range__icon{
+        position: absolute;
+        right: 20px;
+    }
+
+    

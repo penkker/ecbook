@@ -1,0 +1,114 @@
+body{
+    background-color: #db6c11b0;
+    background-image:linear-gradient(to left,9c88ff,#3cadeb);
+    display:flex;
+    justify-content: center;
+}
+/* 盒子的大小 */
+.hezi{
+    position: relative;
+    top: 100px;
+    width: 1100px;
+    height: 550px;
+    box-shadow:0 5px 15px rgba(0,0,0,.8);
+    display:flex;
+}
+/* 左边部分 */
+.left{
+    width: 800px;
+    height: 550px;
+    background-image: url(http://localhost:8080/ECBookGarden/static/imgs/library.jpg);
+    background-size:100%;
+}
+/* 右边部分 */
+.right{
+    width: 300px;
+    height: 550px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login{
+    width: 250px;
+    height: 500px;
+}
+.login h1{
+    color:#db6c11b0;
+}
+/* 鼠标放到相应位置会变颜色 */
+.f:hover:hover{
+    color: #ffcc00;
+}
+.login>h1{
+    font: 900 30px '';
+    text-align: center;
+}
+.e{
+    width: 230px;
+    margin: 25px 0;
+    outline:none;
+    /* 框框消失 */
+    border: 0;
+    padding: 10px;
+    /* 账号下面的下划线 */
+    border-bottom: 3px solid #db6c11b0;
+    font: 900 16px '';
+}.r{
+    width: 100px;
+    margin: 25px 0;
+    outline:none;
+    /* 框框消失 */
+    border: 0;
+    padding: 10px;
+    /* 账号下面的下划线 */
+    border-bottom: 3px solid #db6c11b0;
+    font: 900 16px '';
+}
+.yzm{
+    float: right;
+    background-color: black;
+    width: 120px;
+    height: 65px;
+   
+}
+.yzm img{
+    width: 120px;
+    height: 65px;
+   
+
+}
+/*  */
+.f{
+    float: right;
+    margin: 10px 0;
+    text-decoration: none;
+}
+/* 游客登录 */
+.h{
+     text-decoration: none;
+}
+
+.regist{
+    float: right;
+    text-decoration: none;
+}
+/* 登录 */
+.g{
+    position: absolute;
+    margin:20px;
+    bottom: 40px;
+    display: block;
+    width: 200px;
+    height: 60px;
+    font: 900 30px '';
+    text-decoration: none;
+    line-height: 50px;
+    border-radius: 30px;
+    background-color:#FFCC99;
+    text-align: center;
+    color:#FFFFCC;
+    cursor: pointer;
+
+}
+    

@@ -1,0 +1,7 @@
+.wenxue_section{
+    background: url(http://localhost:8080/ECBookGarden/static/imgs/lunbo_four.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 550px;
+    transition: all .5s;
+}

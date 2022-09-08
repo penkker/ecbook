@@ -1,0 +1,14 @@
+.title{
+    width: 160px;
+    height: 70px;
+    margin-left: 10px;
+    font-size: 28px;
+    border-radius: 30px;
+    
+}
+.title>h3{
+    margin: 5px 10px;
+    background-color: #aef5ea75;
+    color: #2DC2AB;
+    line-height: 50px;
+}
